@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BorrowLend.Models.ExpenseType>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Expense Types List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary w-75" asp-controller="ExpenseType" asp-action="Create">Create New Expense Type</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Any())
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Expense Type Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var type in Model)
+                {
+                    <tr>
+                        <td width="70%">@type.ExpenseTypeName</td>
+                        <td width="30%">
+                            <a class="btn btn-success m-1" asp-controller="ExpenseType" asp-action="Update" asp-route-id="@type.ID">Update</a>
+                            <a class="btn btn-danger m-1" asp-controller="ExpenseType" asp-action="Delete" asp-route-id="@type.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No expense types available.</p>
+    }
+</div>

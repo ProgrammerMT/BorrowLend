@@ -11,5 +11,7 @@ namespace BorrowLend.Data
 
         // Създаване на таблица Items в базата данни
         public DbSet<Item> Items { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<ExpenseType> ExpenseTypes { get; set; } // за таблицата ExpenseTypes
     }
 }

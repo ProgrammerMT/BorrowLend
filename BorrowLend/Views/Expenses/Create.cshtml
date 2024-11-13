@@ -1,0 +1,39 @@
+﻿@model BorrowLend.Models.ViewModels.ExpenseVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create New Expense</h1>
+
+<form method="post" asp-action="Create">
+    <table>
+        <thead>
+            <tr>
+                <th width="30%">Expense Name</th>
+                <th width="30%">Amount</th>
+                <th width="30%">Expense Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="30%">
+                    <input asp-for="Expense.ExpenseName" class="form-control" />
+                    <span asp-validation-for="Expense.ExpenseName" class="text-danger"></span>
+                </td>
+                <td width="30%">
+                    <input asp-for="Expense.Amount" class="form-control" />
+                    <span asp-validation-for="Expense.Amount" class="text-danger"></span>
+                </td>
+                <td width="30%">
+                    <select asp-for="Expense.ExpenseTypeId" asp-items="Model.TypeDropDown" class="form-control">
+                        <option value="">-- Select Expense Type --</option>
+                    </select>
+                    <span asp-validation-for="Expense.ExpenseTypeId" class="text-danger"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

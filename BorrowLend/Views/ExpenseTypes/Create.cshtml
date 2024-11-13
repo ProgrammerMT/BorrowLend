@@ -1,0 +1,14 @@
+﻿@model BorrowLend.Models.ExpenseType
+
+<h2>Create New Expense Type</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="ExpenseTypeName"></label>
+        <input asp-for="ExpenseTypeName" class="form-control" />
+        <span asp-validation-for="ExpenseTypeName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

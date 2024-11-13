@@ -15,9 +15,12 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>Item name</th>
+                    <th>Item Name</th>
                     <th>Borrower</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
                     <th>Lender</th>
+                    <th>Changes</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,10 +29,12 @@
                     <tr>
                         <td width="30%">@item.ItemName</td>
                         <td width="30%">@item.Borrower</td>
+                        <td width="30%">@item.Email</td>
+                        <td width="30%">+359 @item.PhoneNumber</td>
                         <td width="30%">@item.Lender</td>
                         <td width="25%">
-                            <a class="btn btn-success m-1" asp-controller="Item" asp-action="Update" asp-route-id=@item.Id>Update</a>
-                            <a class="btn btn-danger m-1" asp-controller="Item" asp-action="Delete" asp-route-id=@item.Id>Delete</a>
+                            <a class="btn btn-success m-1" asp-controller="Item" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                            <a class="btn btn-danger m-1" asp-controller="Item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
                 }

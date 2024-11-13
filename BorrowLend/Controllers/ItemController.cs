@@ -14,6 +14,7 @@ namespace BorrowLend.Controllers
             _db = db; // Dependency injection
         }
 
+        // GET: Item/Index
         public IActionResult Index()
         {
             IEnumerable<Item> obj = _db.Items;
@@ -31,12 +32,15 @@ namespace BorrowLend.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Item item)
         {
+            // Проверка дали моделът е валиден
             if (ModelState.IsValid)
             {
+                // Записване в базата данни
                 _db.Items.Add(item);
                 _db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); // Пренасочване към Index
             }
+            // Ако не е валидно, връщане на формата с въведените данни и грешки
             return View(item);
         }
 
@@ -56,12 +60,15 @@ namespace BorrowLend.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Item item)
         {
+            // Проверка дали моделът е валиден
             if (ModelState.IsValid)
             {
+                // Обновяване на записите в базата данни
                 _db.Items.Update(item);
                 _db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); // Пренасочване към Index
             }
+            // Ако не е валидно, връщане на формата с въведените данни и грешки
             return View(item);
         }
 
